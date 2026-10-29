@@ -1,0 +1,289 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#111214">
+  <meta name="description" content="Guía de uso oficial de Xtecla con capturas y manual detallado para Windows.">
+  <title>Xtecla | Guía de Uso Oficial y Capturas — DAESystemsLabs</title>
+  <link rel="stylesheet" href="estilos.css">
+</head>
+<body>
+  <header class="header">
+    <a class="brand" href="index.html" aria-label="DAESystemsLabs, inicio">
+      <span class="brand-mark">D<span>.</span></span>
+      <span class="brand-name">DAE<span>SystemsLabs</span></span>
+    </a>
+    <nav class="nav">
+      <a href="index.html">← Volver a inicio</a>
+      <a href="https://apps.microsoft.com/detail/9pgvhcfj07bx?hl=es-ES&gl=PY" target="_blank" rel="noopener noreferrer">Microsoft Store ↗</a>
+    </nav>
+  </header>
+
+  <main class="guide-main">
+    <section class="guide-hero">
+      <span class="eyebrow"><span class="dot"></span> DOCUMENTACIÓN OFICIAL CON CAPTURAS</span>
+      <h1>Guía de Uso de <span>Xtecla</span></h1>
+      <p>Manual oficial paso a paso con capturas reales extraídas de la aplicación para configurar teclado, mouse, macros, perfiles y scripts Lua.</p>
+      <div class="guide-meta">
+        <span>Versión: Referencia 2025</span>
+        <span>·</span>
+        <span>Plataforma: Windows 10 / 11</span>
+        <span>·</span>
+        <a href="https://apps.microsoft.com/detail/9pgvhcfj07bx?hl=es-ES&gl=PY" target="_blank" rel="noopener noreferrer" style="color:var(--mint)">Obtener en Microsoft Store ↗</a>
+      </div>
+    </section>
+
+    <div class="guide-container">
+      <!-- Índice lateral -->
+      <aside class="guide-sidebar">
+        <h3>Contenido</h3>
+        <ul>
+          <li><a href="#introduccion">1. ¿Qué es Xtecla?</a></li>
+          <li><a href="#dispositivos">2. Dispositivos y Periféricos</a></li>
+          <li><a href="#mouse">3. Asignación en Mouse</a></li>
+          <li><a href="#teclado">4. Configuración de Teclado</a></li>
+          <li><a href="#macros">5. Creación y Edición de Macros</a></li>
+          <li><a href="#perfiles">6. Organización de Perfiles</a></li>
+          <li><a href="#lua">7. Scripts Lua (Avanzado)</a></li>
+          <li><a href="#configuracion">8. Configuración Global</a></li>
+          <li><a href="#flujo">9. Flujo Recomendado</a></li>
+          <li><a href="#faq">10. Preguntas Frecuentes</a></li>
+        </ul>
+      </aside>
+
+      <!-- Contenido principal de la guía -->
+      <article class="guide-content">
+
+        <section id="introduccion" class="guide-section">
+          <h2>1. ¿Qué es Xtecla?</h2>
+          <p><strong>Xtecla</strong> es una aplicación para Windows desarrollada por DAESystemsLabs para optimizar tu productividad y automatizar tareas repetitivas. Te permite configurar botones de mouse y teclado, crear macros con secuencias de pasos precisos, organizar configuraciones mediante perfiles y ejecutar scripts Lua avanzados.</p>
+
+          <div class="guide-image-container">
+            <img src="guia-images/uso_p1_1.png" alt="Xtecla - Pantalla de inicio y presentación" class="guide-screenshot">
+            <div class="guide-image-caption">🔍 Hacé clic en la imagen para ampliar</div>
+          </div>
+
+          <div class="tip-box">
+            <strong>Antes de empezar:</strong> Conectá tu periférico compatible, abrí Xtecla y seleccioná el dispositivo. Algunas aplicaciones o juegos con protecciones estrictas pueden requerir ejecutar Xtecla como administrador.
+          </div>
+        </section>
+
+        <section id="dispositivos" class="guide-section">
+          <h2>2. Pantalla Dispositivos: Elegir Periférico</h2>
+          <p>La sección principal muestra los dispositivos detectados (mouse y teclado). Hacé clic en la imagen del periférico para abrir su panel de asignaciones detallado.</p>
+
+          <div class="guide-image-container">
+            <img src="guia-images/uso_p2_2.png" alt="Pantalla Dispositivos - Selección de periféricos" class="guide-screenshot">
+            <div class="guide-image-caption">🔍 Vista de selección de Dispositivos (Hlic para ampliar)</div>
+          </div>
+
+          <ol class="step-list">
+            <li><strong>Seleccioná el dispositivo</strong> detectado en pantalla (mouse o teclado).</li>
+            <li><strong>Verificá el entorno activo</strong> en la esquina superior derecha (perfil actual).</li>
+            <li>Si el dispositivo no aparece, comprobá la conexión USB y asegurate de que Windows lo reconozca correctamente.</li>
+          </ol>
+        </section>
+
+        <section id="mouse" class="guide-section">
+          <h2>3. Asignar Acciones a Botones del Mouse</h2>
+          <p>El panel de configuración del mouse identifica gráficamente el clic izquierdo, clic derecho, clic central, rueda (arriba/abajo) y botones laterales (Adelante/Atrás).</p>
+
+          <div class="guide-image-container">
+            <img src="guia-images/uso_p3_3.png" alt="Asignación de acciones a botones del mouse" class="guide-screenshot">
+            <div class="guide-image-caption">🔍 Panel de botones y acciones del mouse</div>
+          </div>
+
+          <ol class="step-list">
+            <li>Elegí el botón físico del mouse que querés reasignar.</li>
+            <li>Seleccioná el tipo de acción deseada en el panel desplegable.</li>
+            <li>Presioná <strong>Guardar Asignación</strong> para aplicar los cambios.</li>
+          </ol>
+          <p><em>Consejo útil:</em> Modificá un botón por vez y probalo en un entorno seguro. Podés usar "Reset Botón" para restablecer una tecla individual o "Restablecer todo" con precaución.</p>
+        </section>
+
+        <section id="teclado" class="guide-section">
+          <h2>4. Configuración del Teclado</h2>
+          <p>La vista interactiva del teclado permite seleccionar cualquier tecla para cambiar su función o asignarle macros complejas.</p>
+
+          <div class="guide-image-container">
+            <img src="guia-images/uso_p4_4.png" alt="Configuración de teclas en el teclado" class="guide-screenshot">
+            <div class="guide-image-caption">🔍 Vista de selección de teclas individuales</div>
+          </div>
+
+          <ol class="step-list">
+            <li>Localizá y seleccioná la tecla deseada (verás la tecla activa resaltada en verde).</li>
+            <li>Elegí la acción que querés asignarle (atajo, texto rápido o macro).</li>
+            <li>Guardá la asignación y verificala. La distribución visual se ajusta al idioma de teclado configurado en los ajustes generales.</li>
+          </ol>
+        </section>
+
+        <section id="macros" class="guide-section">
+          <h2>5. Creación y Edición de Macros</h2>
+          <p>Una macro es una secuencia automatizada de pasos que Xtecla ejecuta en orden con gran precisión.</p>
+
+          <div class="guide-image-container">
+            <img src="guia-images/uso_p5_6.png" alt="Editor de macros y grabación" class="guide-screenshot">
+            <div class="guide-image-caption">🔍 Editor de macros, pasos y botón de grabación</div>
+          </div>
+
+          <h3>Cómo crear una macro paso a paso:</h3>
+          <ol class="step-list">
+            <li>Entrá al perfil correspondiente y seleccioná <strong>Añadir Macro</strong>.</li>
+            <li>Asignale un nombre descriptivo.</li>
+            <li>Presioná <strong>Grabar Macro</strong> para registrar tus acciones en tiempo real, o agregá los pasos manualmente:
+              <ul>
+                <li><strong>+ Tecla:</strong> incorpora pulsaciones de teclado.</li>
+                <li><strong>+ Clic ratón:</strong> añade clics (izquierdo, derecho, central).</li>
+                <li><strong>+ Espera:</strong> inserta pausas (ej. 100 ms) para dar tiempo a que las aplicaciones respondan.</li>
+                <li><strong>+ Mover ratón:</strong> registra coordenadas o movimientos.</li>
+                <li><strong>+ Texto rápido:</strong> inserta bloques de texto automático.</li>
+              </ul>
+            </li>
+            <li>Revisá la secuencia en la zona central, ajustá los retardos si es necesario y presioná <strong>Guardar Macro</strong>.</li>
+          </ol>
+          <div class="warning-box">
+            <strong>Retardos:</strong> Un valor de retardo muy bajo puede provocar que una aplicación ignore acciones; uno demasiado alto ralentizará la ejecución. Empezá con valores estándar y ajustá según tus necesidades.
+          </div>
+        </section>
+
+        <section id="perfiles" class="guide-section">
+          <h2>6. Organización de Perfiles</h2>
+          <p>Los perfiles te permiten agrupar conjuntos de macros y asignaciones para diferentes aplicaciones, juegos o flujos de trabajo.</p>
+
+          <div class="guide-image-container">
+            <img src="guia-images/uso_p8_9.png" alt="Gestión de Perfiles" class="guide-screenshot">
+            <div class="guide-image-caption">🔍 Panel de perfiles y macros asociadas</div>
+          </div>
+
+          <ol class="step-list">
+            <li>Entrá en la sección <strong>Perfiles</strong>.</li>
+            <li>Presioná <strong>+ Añadir Perfiles</strong> y asignale un nombre claro (ej. "Edición de Video" o "Juegos").</li>
+            <li>Utilizá <strong>+ Añadir Macros</strong> para vincular las macros que necesites.</li>
+            <li>Activá el perfil para comenzar a utilizarlo. Podés configurar perfiles persistentes o habilitar el cambio automático.</li>
+          </ol>
+        </section>
+
+        <section id="lua" class="guide-section">
+          <h2>7. Scripts Lua (Avanzado)</h2>
+          <p>Para usuarios avanzados, Xtecla incluye un editor de scripts basado en lenguaje Lua para crear lógica personalizada e interactiva.</p>
+
+          <div class="guide-image-container">
+            <img src="guia-images/uso_p9_10.png" alt="Editor de scripts Lua" class="guide-screenshot">
+            <div class="guide-image-caption">🔍 Editor y consola de scripts Lua</div>
+          </div>
+
+          <ol class="step-list">
+            <li>Seleccioná <strong>+ Crear un nuevo script de Lua</strong>.</li>
+            <li>Escribí o pegá tu código utilizando funciones de eventos como <code>AlPresionarTecla(tecla)</code> o <code>OnEvent(evento, arg)</code>.</li>
+            <li>Guardá el script y probalo en un entorno controlado.</li>
+          </ol>
+
+          <div class="tip-box">
+            <strong>¿Necesitás ayuda para crear scripts?</strong> Si querés implementar automatizaciones avanzadas y no tenés experiencia con Lua, podés pedirle ayuda a cualquier inteligencia artificial conversacional (como <strong>ChatGPT</strong>, <strong>Gemini</strong> o similares). Describile la tarea que buscás resolver y pedile que te redacte el código en Lua para adaptarlo a Xtecla.
+          </div>
+          <div class="warning-box">
+            <strong>Precaución:</strong> No ejecutes scripts Lua de fuentes desconocidas. Si no tenés experiencia con programación, podés realizar todas tus automatizaciones mediante macros visuales sin tocar código.
+          </div>
+        </section>
+
+        <section id="configuracion" class="guide-section">
+          <h2>8. Configuración Global</h2>
+          <p>La pestaña de configuración reúne las preferencias generales de la aplicación y el estado de tu licencia:</p>
+
+          <div class="guide-image-container">
+            <img src="guia-images/uso_p11_12.png" alt="Configuración global y licencia" class="guide-screenshot">
+            <div class="guide-image-caption">🔍 Panel de configuración global y preferencias de Windows</div>
+          </div>
+
+          <ul>
+            <li><strong>Estado de licencia:</strong> Verificá tu activación (ej. Xtecla PRO).</li>
+            <li><strong>Idioma e Idioma de teclado:</strong> Define la interfaz y la distribución visual de las teclas.</li>
+            <li><strong>Iniciar al iniciar sesión:</strong> Abre Xtecla automáticamente al encender tu PC.</li>
+            <li><strong>Minimizar a la bandeja:</strong> Mantiene la aplicación en segundo plano en la barra de tareas.</li>
+            <li><strong>Ejecutar como administrador:</strong> Otorga privilegios elevados necesarios para interactuar con aplicaciones protegidas.</li>
+          </ul>
+        </section>
+
+        <section id="flujo" class="guide-section">
+          <h2>9. Flujo de Trabajo Recomendado</h2>
+          <ol class="step-list">
+            <li>Conectá tu periférico y abrí <strong>Dispositivos</strong>.</li>
+            <li>Asigná acciones básicas a los botones principales.</li>
+            <li>Crea un perfil específico en la sección <strong>Perfiles</strong>.</li>
+            <li>Diseñá tus macros, grabalas o añádelas paso a paso.</li>
+            <li>Guardá todo, activá el perfil y probalo en una aplicación segura.</li>
+          </ol>
+        </section>
+
+        <section id="faq" class="guide-section">
+          <h2>10. Preguntas Frecuentes y Solución de Problemas</h2>
+          <div class="faq-item">
+            <h4>¿La macro no se ejecuta en mi aplicación?</h4>
+            <p>Comprobá que el perfil correcto esté activo, que la macro esté asociada a ese perfil y que los retardos sean suficientes. Si la aplicación requiere privilegios, activá "Ejecutar como administrador" en Configuración.</p>
+          </div>
+          <div class="faq-item">
+            <h4>¿Cómo soluciono una tecla mal asignada?</h4>
+            <p>Seleccioná la tecla o botón afectado y utilizá la opción <strong>Reset Botón</strong> para volver al estado inicial.</p>
+          </div>
+          <div class="faq-item">
+            <h4>Buenas prácticas recomendadas</h4>
+            <p>Usá nombres descriptivos, realizá pruebas controladas antes de aplicarlo en tareas críticas y recordá guardar los cambios después de cada modificación.</p>
+          </div>
+        </section>
+
+      </article>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <a class="brand" href="index.html">
+      <span class="brand-mark">D<span>.</span></span>
+      <span class="brand-name">DAE<span>SystemsLabs</span></span>
+    </a>
+    <span>© <span id="year"></span> DAESystemsLabs. Todos los derechos reservados.</span>
+    <a href="index.html">Volver a inicio ↑</a>
+  </footer>
+
+  <!-- Lightbox Modal para capturas de la guía -->
+  <div class="screenshot-modal" id="screenshotModal" role="dialog" aria-hidden="true">
+    <div class="modal-backdrop" id="modalBackdrop"></div>
+    <div class="modal-content">
+      <button class="modal-close" id="modalClose" aria-label="Cerrar">&times;</button>
+      <img id="modalImg" src="" alt="Captura ampliada">
+      <div class="modal-caption" id="modalCaption"></div>
+    </div>
+  </div>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    const modal = document.getElementById('screenshotModal');
+    const modalImg = document.getElementById('modalImg');
+    const modalCaption = document.getElementById('modalCaption');
+    const modalClose = document.getElementById('modalClose');
+    const modalBackdrop = document.getElementById('modalBackdrop');
+
+    document.querySelectorAll('.guide-screenshot').forEach(img => {
+      img.addEventListener('click', () => {
+        modalImg.src = img.src;
+        modalCaption.textContent = img.alt || 'Captura de Xtecla';
+        modal.classList.add('open');
+        modal.setAttribute('aria-hidden', 'false');
+      });
+    });
+
+    function closeModal() {
+      modal.classList.remove('open');
+      modal.setAttribute('aria-hidden', 'true');
+      modalImg.src = '';
+    }
+
+    modalClose.addEventListener('click', closeModal);
+    modalBackdrop.addEventListener('click', closeModal);
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') closeModal();
+    });
+  </script>
+</body>
+</html>
