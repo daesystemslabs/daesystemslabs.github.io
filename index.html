@@ -1,0 +1,256 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#111214">
+  <meta name="description" content="Aplicaciones para Windows desarrolladas por DAESystemsLabs: Xtecla, KioscoApp y AlacartaApp.">
+  <title>DAESystemsLabs | Aplicaciones para Windows</title>
+  <link rel="stylesheet" href="estilos.css">
+</head>
+<body>
+  <header class="header">
+    <a class="brand" href="#inicio" aria-label="DAESystemsLabs, inicio">
+      <span class="brand-mark">D<span>.</span></span>
+      <span class="brand-name">DAE<span>SystemsLabs</span></span>
+    </a>
+    <button class="menu-toggle" id="menuToggle" aria-label="Abrir menú" aria-expanded="false">☰</button>
+    <nav class="nav" id="nav">
+      <a href="#inicio">Inicio</a>
+      <a href="#aplicaciones">Aplicaciones</a>
+      <a href="#nosotros">Sobre nosotros</a>
+      <a href="#contacto">Contacto</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero" id="inicio">
+      <div class="hero-content">
+        <span class="eyebrow"><span class="dot"></span> SOFTWARE PARA WINDOWS · MICROSOFT STORE</span>
+        <h1>Herramientas digitales<br><span>hechas para vos.</span></h1>
+        <p>Aplicaciones diseñadas para simplificar tareas, automatizar procesos y potenciar la gestión de tu negocio en Windows.</p>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="#aplicaciones">Explorar aplicaciones <span>↘</span></a>
+          <a class="btn btn-ghost" href="#nosotros">Conocer DAESystemsLabs</a>
+        </div>
+        <div class="hero-note"><span>●</span> Windows 10 / 11 · Disponibles en Microsoft Store</div>
+      </div>
+      <div class="hero-art" aria-label="Ilustración decorativa de software">
+        <div class="orbit orbit-one"></div><div class="orbit orbit-two"></div>
+        <div class="app-window">
+          <div class="window-top"><span></span><span></span><span></span><b>DAE · Workspace</b></div>
+          <div class="window-body">
+            <div class="side-line"></div>
+            <div class="dash-main">
+              <div class="dash-label">TU ESPACIO DE TRABAJO</div>
+              <div class="dash-title">Todo más simple.</div>
+              <div class="dash-bars"><i></i><i></i><i></i></div>
+              <div class="dash-card"><span class="mini-icon">⌘</span><div><b>Automatización</b><small>Procesos más ágiles</small></div><span class="check">✓</span></div>
+              <div class="dash-card"><span class="mini-icon">▦</span><div><b>Gestión</b><small>Organizá tu negocio</small></div><span class="check">✓</span></div>
+            </div>
+          </div>
+        </div>
+        <div class="float-chip chip-top"><span>✦</span> Productividad</div>
+        <div class="float-chip chip-bottom"><span>⌘</span> Microsoft Store Ready</div>
+      </div>
+    </section>
+
+    <section class="section apps-section" id="aplicaciones">
+      <div class="section-heading">
+        <div>
+          <span class="eyebrow">NUESTRO SOFTWARE</span>
+          <h2>Aplicaciones</h2>
+        </div>
+        <p>Descubrí nuestras herramientas publicadas en Microsoft Store y encontrá la solución ideal para tu día a día.</p>
+      </div>
+
+      <div class="app-grid">
+        <!-- Xtecla -->
+        <article class="app-card">
+          <div class="app-visual visual-xtecla" data-screenshot="images/xtecla.png">
+            <!-- Imagen real de captura (si el usuario la coloca en images/xtecla.png) -->
+            <img src="images/xtecla.png" alt="Captura de Xtecla" class="app-screenshot" onerror="this.style.display='none'">
+            <div class="visual-fallback">
+              <div class="visual-grid"></div>
+              <div class="app-cover-window">
+                <div class="cover-topbar"><span></span><span></span><span></span><b>Xtecla · Macro Engine</b></div>
+                <div class="cover-content">
+                  <div class="cover-badge">AUTOMATIZACIÓN DE TECLADO</div>
+                  <div class="cover-macro-box">
+                    <span class="macro-key">Ctrl</span> + <span class="macro-key">Space</span>
+                    <div class="macro-wave"><i></i><i></i><i></i><i></i><i></i></div>
+                  </div>
+                  <div class="cover-status-row"><span class="dot-green"></span><span>Macro activa (0.12s)</span></div>
+                </div>
+              </div>
+            </div>
+            <span class="visual-tag">AUTOMATIZACIÓN</span>
+            <button class="screenshot-zoom-btn" title="Ver portada en grande" aria-label="Ampliar portada">🔍 Ver portada</button>
+          </div>
+          <div class="app-info">
+            <div class="app-title-row">
+              <h3>Xtecla</h3>
+              <span class="status status-live">Disponible en Store</span>
+            </div>
+            <p>Automatizá tareas repetitivas con potentes herramientas de teclado, mouse, macros y scripts personalizados.</p>
+            <div class="tag-row">
+              <span>Macros</span>
+              <span>Teclado y Mouse</span>
+              <span>Automatización</span>
+              <span>Windows</span>
+            </div>
+            <div class="card-actions">
+              <button class="btn btn-small btn-primary store-link" data-app="xtecla">Ver en Microsoft Store <span>↗</span></button>
+              <button class="text-link details-btn" data-target="xtecla-details">Detalles <span>＋</span></button>
+            </div>
+            <div class="details" id="xtecla-details">
+              <h4>Sobre Xtecla</h4>
+              <p>Optimizá tus flujos de trabajo diarios mediante accesos directos avanzados y secuencias automatizadas.</p>
+              <ul>
+                <li>Grabación y ejecución de macros precisas.</li>
+                <li>Atajos de teclado y mouse configurables.</li>
+                <li>Interfaz rápida, ligera y optimizada para Windows.</li>
+                <li>Actualizaciones automáticas vía Microsoft Store.</li>
+              </ul>
+              <div class="detail-foot">Licencia <span>Microsoft Store</span></div>
+            </div>
+          </div>
+        </article>
+
+        <!-- KioscoApp -->
+        <article class="app-card">
+          <div class="app-visual visual-kiosco" data-screenshot="images/kiosco.png">
+            <!-- Imagen real de captura (si el usuario la coloca en images/kiosco.png) -->
+            <img src="images/kiosco.png" alt="Captura de KioscoApp" class="app-screenshot" onerror="this.style.display='none'">
+            <div class="visual-fallback">
+              <div class="app-cover-window kiosk-window">
+                <div class="cover-topbar"><span></span><span></span><span></span><b>KioscoApp · Caja & Stock</b></div>
+                <div class="cover-content">
+                  <div class="kiosk-stat-card">
+                    <small>VENTAS DEL DÍA</small>
+                    <b>$ 145,200</b>
+                  </div>
+                  <div class="kiosk-items-row">
+                    <span>📦 Stock OK</span>
+                    <span>🛒 24 Ventas</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <span class="visual-tag">PARA NEGOCIOS</span>
+            <button class="screenshot-zoom-btn" title="Ver portada en grande" aria-label="Ampliar portada">🔍 Ver portada</button>
+          </div>
+          <div class="app-info">
+            <div class="app-title-row">
+              <h3>KioscoApp</h3>
+              <span class="status status-live">Disponible en Store</span>
+            </div>
+            <p>Una solución integral de software pensada para acompañar y simplificar la gestión de kioscos y pequeños comercios.</p>
+            <div class="tag-row">
+              <span>Control de Stock</span>
+              <span>Ventas</span>
+              <span>Negocios</span>
+              <span>Windows</span>
+            </div>
+            <div class="card-actions">
+              <button class="btn btn-small btn-primary store-link" data-app="kiosco">Ver en Microsoft Store <span>↗</span></button>
+              <button class="text-link details-btn" data-target="kiosco-details">Detalles <span>＋</span></button>
+            </div>
+            <div class="details" id="kiosco-details">
+              <h4>Sobre KioscoApp</h4>
+              <p>Llevá el control diario de caja, inventario y ventas de forma ágil sin complicaciones técnicas.</p>
+              <ul>
+                <li>Control de inventario y stock en tiempo real.</li>
+                <li>Registro rápido de ventas y medios de pago.</li>
+                <li>Reportes claros para la toma de decisiones.</li>
+                <li>Soporte y distribución oficial por Microsoft Store.</li>
+              </ul>
+              <div class="detail-foot">Licencia <span>Microsoft Store</span></div>
+            </div>
+          </div>
+        </article>
+
+        <!-- AlacartaApp -->
+        <article class="app-card app-card-soon">
+          <div class="app-visual visual-alacarta">
+            <div class="plate"><span>✦</span><i></i></div>
+            <div class="spark spark-1">✧</div>
+            <div class="spark spark-2">✦</div>
+            <span class="visual-tag">NUEVO PROYECTO</span>
+          </div>
+          <div class="app-info">
+            <div class="app-title-row">
+              <h3>AlacartaApp</h3>
+              <span class="status status-soon">En desarrollo</span>
+            </div>
+            <p>Una nueva aplicación en camino de DAESystemsLabs. Próximamente más novedades y lanzamiento oficial.</p>
+            <div class="tag-row">
+              <span>Próximamente</span>
+              <span>Gastronomía</span>
+              <span>Windows</span>
+            </div>
+            <div class="card-actions">
+              <button class="btn btn-small btn-disabled" disabled>Próximamente</button>
+              <button class="text-link details-btn" data-target="alacarta-details">Detalles <span>＋</span></button>
+            </div>
+            <div class="details" id="alacarta-details">
+              <h4>AlacartaApp</h4>
+              <p>Proyecto en fase de desarrollo activo. Pronto publicaremos sus características principales y su fecha estimada de llegada a Microsoft Store.</p>
+              <div class="detail-foot">Estado <span>En desarrollo</span></div>
+            </div>
+          </div>
+        </article>
+      </div>
+
+      <p class="store-note"><span>ⓘ</span> Las descargas, compras y actualizaciones de nuestras aplicaciones se gestionan directamente desde Microsoft Store de forma oficial y segura.</p>
+    </section>
+
+    <section class="about-section" id="nosotros">
+      <div class="about-inner">
+        <div class="about-symbol">DAE<span>/</span></div>
+        <div>
+          <span class="eyebrow">SOBRE DAESYSTEMSLABS</span>
+          <h2>Software útil.<br><span>Experiencias simples.</span></h2>
+          <p>Desarrollamos aplicaciones de escritorio para Windows orientadas a resolver necesidades reales con alto estándar de calidad, rendimiento y simplicidad. Reunimos aquí nuestro ecosistema de productos.</p>
+          <a class="text-link light-link" href="#aplicaciones">Conocé nuestras aplicaciones <span>→</span></a>
+        </div>
+        <div class="about-stat">
+          <b>03</b>
+          <span>Aplicaciones<br>y proyectos</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="contact-section" id="contacto">
+      <div>
+        <span class="eyebrow">¿TENÉS UNA CONSULTA O SOPORTE?</span>
+        <h2>Estamos para ayudarte.</h2>
+        <p>Contactanos para consultas comerciales, soporte técnico o sugerencias sobre nuestras aplicaciones.</p>
+      </div>
+      <a class="btn btn-primary" href="mailto:contacto@daesystemslabs.com">Contactar por Email <span>↗</span></a>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <a class="brand" href="#inicio">
+      <span class="brand-mark">D<span>.</span></span>
+      <span class="brand-name">DAE<span>SystemsLabs</span></span>
+    </a>
+    <span>© <span id="year"></span> DAESystemsLabs. Todos los derechos reservados.</span>
+    <a href="#inicio">Volver arriba ↑</a>
+  </footer>
+
+  <!-- Lightbox Modal para portadas y capturas -->
+  <div class="screenshot-modal" id="screenshotModal" role="dialog" aria-hidden="true">
+    <div class="modal-backdrop" id="modalBackdrop"></div>
+    <div class="modal-content">
+      <button class="modal-close" id="modalClose" aria-label="Cerrar">&times;</button>
+      <img id="modalImg" src="" alt="Portada ampliada">
+      <div class="modal-caption" id="modalCaption"></div>
+    </div>
+  </div>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+  <script src="script.js"></script>
+</body>
+</html>
