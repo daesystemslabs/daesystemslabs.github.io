@@ -100,10 +100,7 @@ nav.querySelectorAll('a').forEach(link => link.addEventListener('click', () => {
   menuToggle.textContent = '☰';
 }));
 
-// Contact email notice
+// Contact email handler
 document.querySelector('a[href^="mailto:"]').addEventListener('click', event => {
-  if (event.currentTarget.getAttribute('href') === 'mailto:contacto@daesystemslabs.com') {
-    event.preventDefault();
-    showToast('Reemplazá contacto@daesystemslabs.com por tu correo oficial antes de publicar.');
-  }
+  // Correo oficial configurado: daesystemslabs@gmail.com
 });
