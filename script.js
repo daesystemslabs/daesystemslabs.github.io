@@ -344,9 +344,9 @@ if (heroArt && heroAppWindow) {
     const rect = heroArt.getBoundingClientRect();
     const x = e.clientX - rect.left - rect.width / 2;
     const y = e.clientY - rect.top - rect.height / 2;
-    const rotateX = (-y / 18).toFixed(2);
-    const rotateY = (x / 18).toFixed(2);
-    heroAppWindow.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-6px) rotate(-2deg)`;
+    const rotateX = (-y / 10).toFixed(2);
+    const rotateY = (x / 10).toFixed(2);
+    heroAppWindow.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-14px) rotate(-3deg)`;
   });
 
   heroArt.addEventListener('mouseleave', () => {
@@ -635,4 +635,36 @@ if (menuToggle && nav) {
     menuToggle.setAttribute('aria-expanded', 'false');
     menuToggle.textContent = '☰';
   }));
+}
+
+// 21. Infinite Code Typing Stream in Terminal Widget
+const terminalStream = document.getElementById('terminalCodeStream');
+const codeSnippets = [
+  "> loading Xtecla.engine...",
+  "> registering global hotkeys [Ctrl+Shift+A]...",
+  "> KioscoApp POS: sync SQLite local DB [OK]",
+  "> evaluating Lua script event hooks...",
+  "> macro sequence recorded (14 steps, 85ms)",
+  "> Microsoft Store license verification: PRO active",
+  "> optimizing memory allocation [GPU/CPU fallback]",
+  "> DAE telemetry: zero bloatware verified ✓",
+  "> listening for user input events..."
+];
+
+if (terminalStream) {
+  let snippetIdx = 0;
+  function streamCode() {
+    const codeEl = document.createElement('code');
+    codeEl.textContent = codeSnippets[snippetIdx];
+    terminalStream.appendChild(codeEl);
+
+    // Keep max 4 lines visible
+    if (terminalStream.children.length > 4) {
+      terminalStream.removeChild(terminalStream.firstChild);
+    }
+
+    snippetIdx = (snippetIdx + 1) % codeSnippets.length;
+    setTimeout(streamCode, 1800);
+  }
+  setTimeout(streamCode, 1000);
 }

@@ -481,12 +481,18 @@ body:hover .cursor-glow {
   background: #1c1b1f;
   border: 1px solid #38383f;
   border-radius: 16px;
-  box-shadow: 0 30px 90px rgba(0, 0, 0, 0.7), 0 0 40px rgba(0, 230, 56, 0.08);
+  box-shadow: 0 30px 90px rgba(0, 0, 0, 0.7), 0 0 55px rgba(0, 230, 56, 0.15);
   overflow: hidden;
   transform: rotate(-2deg);
   position: relative;
   z-index: 3;
-  transition: transform 0.15s ease-out, box-shadow 0.3s;
+  animation: floatWindow 4.5s ease-in-out infinite;
+  transition: transform 0.2s cubic-bezier(0.16,1,0.3,1), box-shadow 0.3s;
+}
+
+@keyframes floatWindow {
+  0%, 100% { transform: translateY(0) rotate(-4.5deg); }
+  50% { transform: translateY(-22px) rotate(-1deg); }
 }
 
 .window-top {
@@ -678,41 +684,55 @@ body:hover .cursor-glow {
 /* Floating chips con magnetismo y brillo */
 .float-chip {
   position: absolute;
-  background: rgba(41, 37, 47, 0.85);
+  background: rgba(41, 37, 47, 0.9);
   border: 1px solid #51445f;
-  padding: 9px 14px;
-  border-radius: 10px;
-  font-size: 10px;
+  padding: 11px 16px;
+  border-radius: 11px;
+  font-size: 11px;
   color: #f1eafa;
   z-index: 4;
-  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.6), 0 0 15px rgba(139, 92, 246, 0.2);
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.7), 0 0 25px rgba(139, 92, 246, 0.3);
   backdrop-filter: blur(8px);
   cursor: default;
-  transition: transform 0.2s ease, border-color 0.2s, box-shadow 0.2s;
-  animation: floatChip 5s ease-in-out infinite;
+  transition: transform 0.3s cubic-bezier(0.16,1,0.3,1), border-color 0.3s, box-shadow 0.3s;
+  animation: floatChip 4s ease-in-out infinite;
 }
 .float-chip:hover {
   border-color: #a78bfa;
-  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.8), 0 0 25px rgba(167, 139, 250, 0.4);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.9), 0 0 35px rgba(167, 139, 250, 0.5);
+  transform: scale(1.05);
 }
 .float-chip span {
   color: #c4a7ff;
   margin-right: 7px;
 }
 .chip-top {
-  top: 40px;
-  right: 0px;
+  top: 35px;
+  right: -5px;
   animation-delay: 0s;
 }
 .chip-bottom {
-  bottom: 30px;
-  left: -5px;
-  animation-delay: 2.5s;
+  bottom: 22px;
+  left: -10px;
+  animation-delay: 2s;
 }
 
 @keyframes floatChip {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-9px); }
+  0%, 100% { transform: translateY(0) scale(1); }
+  50% { transform: translateY(-22px) scale(1.06); }
+}
+
+.interactive-dash-card {
+  cursor: pointer;
+  transition: all 0.25s cubic-bezier(0.16,1,0.3,1);
+}
+.interactive-dash-card:hover {
+  transform: scale(1.03) translateY(-2px);
+  border-color: var(--mint);
+  box-shadow: 0 0 25px rgba(0, 230, 56, 0.3);
+}
+.interactive-dash-card:active {
+  transform: scale(0.98);
 }
 
 /* ========================================================
@@ -1567,29 +1587,94 @@ body:hover .cursor-glow {
   gap: 10px;
 }
 
-.about-stats-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
+.about-right-column {
+  display: flex;
+  flex-direction: column;
   gap: 20px;
   border-left: 1px solid #37343d;
   padding-left: 32px;
 }
 
+.about-stats-grid {
+  display: flex;
+  justify-content: space-between;
+  gap: 24px;
+  align-items: flex-start;
+}
+
+.code-terminal-widget {
+  background: #131216;
+  border: 1px solid #37343d;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.6), 0 0 25px rgba(0, 230, 56, 0.1);
+  font-family: 'Fira Code', Consolas, monospace;
+  font-size: 11px;
+  width: 100%;
+}
+.terminal-top {
+  background: #18171c;
+  border-bottom: 1px solid #37343d;
+  padding: 8px 12px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  color: #8998b0;
+}
+.terminal-top b {
+  margin-left: 6px;
+  font-weight: 500;
+  color: #d1d5db;
+  font-size: 10px;
+}
+.terminal-status {
+  margin-left: auto;
+  font-size: 8px;
+  color: #70f58b;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+.terminal-body {
+  padding: 12px;
+  height: 95px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  color: #a3fbc0;
+  line-height: 1.6;
+}
+.terminal-body code {
+  display: block;
+  white-space: pre-wrap;
+  animation: fadeInCode 0.3s ease-out;
+}
+@keyframes fadeInCode {
+  from { opacity: 0; transform: translateY(6px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.about-stat {
+  flex: 1;
+}
+
 .about-stat b {
-  font: 600 40px 'Space Grotesk', sans-serif;
+  font: 600 36px 'Space Grotesk', sans-serif;
   display: block;
   color: #e9efff;
   line-height: 1;
   margin-bottom: 6px;
+  white-space: nowrap;
   background: linear-gradient(135deg, #fff, #b1adb8);
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
 }
 .about-stat span {
-  font-size: 10.5px;
+  font-size: 10px;
   color: #8c9bb0;
-  line-height: 1.5;
+  line-height: 1.4;
   display: block;
 }
 
@@ -2127,8 +2212,9 @@ body:hover .cursor-glow {
     height: 190px;
   }
   .about-stats-grid {
-    grid-template-columns: 1fr;
-    gap: 16px;
+    display: flex;
+    justify-content: space-between;
+    gap: 12px;
   }
   .about-symbol {
     width: 140px;
