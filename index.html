@@ -9,22 +9,36 @@
   <link rel="stylesheet" href="estilos.css">
 </head>
 <body>
-  <header class="header">
+  <!-- Barra de progreso de lectura superior -->
+  <div id="scrollProgressBar" class="scroll-progress-bar" role="progressbar" aria-label="Progreso de página"></div>
+
+  <!-- Luces ambientales de fondo (glow orbs) -->
+  <div class="bg-glow bg-glow-1" aria-hidden="true"></div>
+  <div class="bg-glow bg-glow-2" aria-hidden="true"></div>
+  <div class="bg-glow bg-glow-3" aria-hidden="true"></div>
+
+  <!-- Cursor aura ambiental sutil para escritorio -->
+  <div class="cursor-glow" id="cursorGlow" aria-hidden="true"></div>
+
+  <header class="header" id="mainHeader">
     <a class="brand" href="#inicio" aria-label="DAESystemsLabs, inicio">
       <span class="brand-mark">D<span>.</span></span>
       <span class="brand-name">DAE<span>SystemsLabs</span></span>
     </a>
     <button class="menu-toggle" id="menuToggle" aria-label="Abrir menú" aria-expanded="false">☰</button>
     <nav class="nav" id="nav">
-      <a href="#inicio">Inicio</a>
-      <a href="#aplicaciones">Aplicaciones</a>
-      <a href="#nosotros">Sobre nosotros</a>
-      <a href="#contacto">Contacto</a>
+      <a href="#inicio" class="nav-link active">Inicio</a>
+      <a href="#aplicaciones" class="nav-link">Aplicaciones</a>
+      <a href="#nosotros" class="nav-link">Sobre nosotros</a>
+      <a href="#contacto" class="nav-link">Contacto</a>
     </nav>
   </header>
 
   <main>
     <section class="hero" id="inicio">
+      <!-- Canvas interactivo de partículas espaciales en el Hero -->
+      <canvas id="heroParticles" class="hero-particles-canvas" aria-hidden="true"></canvas>
+
       <div class="hero-content">
         <span class="eyebrow"><span class="dot"></span> SOFTWARE PARA WINDOWS · MICROSOFT STORE</span>
         <div class="hero-title-box">
@@ -37,23 +51,49 @@
         </div>
         <div class="hero-note"><span>●</span> Windows 10 / 11 · Disponibles en Microsoft Store</div>
       </div>
-      <div class="hero-art" aria-label="Ilustración decorativa de software">
-        <div class="orbit orbit-one"></div><div class="orbit orbit-two"></div>
-        <div class="app-window">
-          <div class="window-top"><span></span><span></span><span></span><b>DAE · Workspace</b></div>
+
+      <div class="hero-art" aria-label="Ilustración interactiva de software">
+        <div class="orbit orbit-one"></div>
+        <div class="orbit orbit-two"></div>
+        <div class="app-window" id="heroAppWindow">
+          <div class="window-top">
+            <span class="w-dot red"></span>
+            <span class="w-dot yellow"></span>
+            <span class="w-dot green"></span>
+            <b>DAE · Workspace</b>
+            <span class="live-status-pill"><i class="status-pulse"></i> 60 FPS · Sistema Activo</span>
+          </div>
           <div class="window-body">
-            <div class="side-line"></div>
+            <div class="side-line">
+              <span class="side-icon active">⌘</span>
+              <span class="side-icon">▦</span>
+              <span class="side-icon">⚙</span>
+            </div>
             <div class="dash-main">
-              <div class="dash-label">TU ESPACIO DE TRABAJO</div>
+              <div class="dash-label">ESPACIO DE TRABAJO EN VIVO</div>
               <div class="dash-title">Todo más simple.</div>
               <div class="dash-bars"><i></i><i></i><i></i></div>
-              <div class="dash-card"><span class="mini-icon">⌘</span><div><b>Automatización</b><small>Procesos más ágiles</small></div><span class="check">✓</span></div>
-              <div class="dash-card"><span class="mini-icon">▦</span><div><b>Gestión</b><small>Organizá tu negocio</small></div><span class="check">✓</span></div>
+              <div class="dash-card interactive-dash-card" id="heroCardAuto" role="button" tabindex="0" title="Clic para interactuar con la simulación">
+                <span class="mini-icon">⌘</span>
+                <div>
+                  <b>Automatización</b>
+                  <small id="heroAutoLabel">12 macros activas · En ejecución</small>
+                </div>
+                <span class="check" id="heroAutoCheck">✓</span>
+              </div>
+              <div class="dash-card interactive-dash-card" id="heroCardGest" role="button" tabindex="0" title="Clic para interactuar con la simulación">
+                <span class="mini-icon">▦</span>
+                <div>
+                  <b>Gestión de Caja & Stock</b>
+                  <small id="heroGestLabel">Sincronización en tiempo real</small>
+                </div>
+                <span class="check" id="heroGestCheck">✓</span>
+              </div>
             </div>
           </div>
         </div>
-        <div class="float-chip chip-top"><span>✦</span> Productividad</div>
-        <div class="float-chip chip-bottom"><span>⌘</span> Microsoft Store Ready</div>
+        <div class="float-chip chip-top magnetic-chip"><span>✦</span> Productividad</div>
+        <div class="float-chip chip-bottom magnetic-chip"><span>⌘</span> Microsoft Store Ready</div>
       </div>
     </section>
 
@@ -63,26 +103,41 @@
           <span class="eyebrow">NUESTRO SOFTWARE</span>
           <h2>Aplicaciones</h2>
         </div>
-        <p>Descubrí nuestras herramientas publicadas en Microsoft Store y encontrá la solución ideal para tu día a día.</p>
+        <p>Descubrí nuestras herramientas publicadas en Microsoft Store. Probá las demostraciones interactivas o mirá las capturas reales.</p>
       </div>
 
       <div class="app-grid">
         <!-- Xtecla -->
-        <article class="app-card">
+        <article class="app-card" data-accent="mint">
+          <div class="card-glare"></div>
           <div class="app-visual visual-xtecla" data-screenshot="images/xtecla.png">
-            <!-- Imagen real de captura (si el usuario la coloca en images/xtecla.png) -->
+            <!-- Barra de modos interactivos -->
+            <div class="visual-mode-bar">
+              <button type="button" class="mode-tab active" data-view="demo" title="Ver demostración interactiva">⚡ Demo interactiva</button>
+              <button type="button" class="mode-tab" data-view="screen" title="Ver captura de pantalla real">🖼️ Captura</button>
+            </div>
+
+            <!-- Imagen real de captura (oculta por defecto en favor de la demo interactiva) -->
             <img src="images/xtecla.png" alt="Captura de Xtecla" class="app-screenshot" onerror="this.style.display='none'">
-            <div class="visual-fallback">
+            
+            <!-- Vista interactiva en vivo -->
+            <div class="visual-fallback active-view">
               <div class="visual-grid"></div>
               <div class="app-cover-window">
                 <div class="cover-topbar"><span></span><span></span><span></span><b>Xtecla · Macro Engine</b></div>
                 <div class="cover-content">
-                  <div class="cover-badge">AUTOMATIZACIÓN DE TECLADO</div>
-                  <div class="cover-macro-box">
-                    <span class="macro-key">Ctrl</span> + <span class="macro-key">Space</span>
-                    <div class="macro-wave"><i></i><i></i><i></i><i></i><i></i></div>
+                  <div class="cover-badge">AUTOMATIZACIÓN EN VIVO</div>
+                  <div class="cover-macro-box interactive-macro-box" id="xteclaMacroBox" title="¡Hacé clic o presioná para probar la macro!">
+                    <div class="macro-keys-display">
+                      <span class="macro-key" id="macroKeyCtrl">Ctrl</span> + <span class="macro-key" id="macroKeySpace">Space</span>
+                    </div>
+                    <div class="macro-wave" id="macroWave"><i></i><i></i><i></i><i></i><i></i></div>
+                    <button type="button" class="macro-run-pill" id="macroRunBtn" title="Ejecutar simulación">▶ Probar</button>
                   </div>
-                  <div class="cover-status-row"><span class="dot-green"></span><span>Macro activa (0.12s)</span></div>
+                  <div class="cover-status-row" id="macroStatusRow">
+                    <span class="dot-green"></span>
+                    <span id="macroStatusText">Lista para ejecutar (0.00s)</span>
+                  </div>
                 </div>
               </div>
             </div>
@@ -106,38 +161,52 @@
               <button class="text-link details-btn" data-target="xtecla-details">Detalles <span>＋</span></button>
             </div>
             <div class="details" id="xtecla-details">
-              <h4>Sobre Xtecla</h4>
-              <p>Optimizá tus flujos de trabajo diarios mediante accesos directos avanzados y secuencias automatizadas.</p>
-              <ul>
-                <li>Grabación y ejecución de macros precisas.</li>
-                <li>Atajos de teclado y mouse configurables.</li>
-                <li>Interfaz rápida, ligera y optimizada para Windows.</li>
-                <li>Actualizaciones automáticas vía Microsoft Store.</li>
-              </ul>
-              <div class="detail-foot">
-                <a href="guia-xtecla.html" style="color:var(--mint);font-weight:700;">Ver manual completo →</a>
-                <a href="politica-privacidad-xtecla.html" style="color:var(--muted);font-size:11px;">Privacidad</a>
+              <div class="details-inner">
+                <h4>Sobre Xtecla</h4>
+                <p>Optimizá tus flujos de trabajo diarios mediante accesos directos avanzados y secuencias automatizadas.</p>
+                <ul>
+                  <li>Grabación y ejecución de macros precisas.</li>
+                  <li>Atajos de teclado y mouse configurables.</li>
+                  <li>Interfaz rápida, ligera y optimizada para Windows.</li>
+                  <li>Actualizaciones automáticas vía Microsoft Store.</li>
+                </ul>
+                <div class="detail-foot">
+                  <a href="guia-xtecla.html" style="color:var(--mint);font-weight:700;">Ver manual completo →</a>
+                  <a href="politica-privacidad-xtecla.html" style="color:var(--muted);font-size:11px;">Privacidad</a>
+                </div>
               </div>
             </div>
           </div>
         </article>
 
         <!-- KioscoApp -->
-        <article class="app-card">
+        <article class="app-card" data-accent="orange">
+          <div class="card-glare"></div>
           <div class="app-visual visual-kiosco" data-screenshot="images/kiosco.png">
-            <!-- Imagen real de captura (si el usuario la coloca en images/kiosco.png) -->
+            <!-- Barra de modos interactivos -->
+            <div class="visual-mode-bar">
+              <button type="button" class="mode-tab active" data-view="demo" title="Ver demostración interactiva">⚡ Demo interactiva</button>
+              <button type="button" class="mode-tab" data-view="screen" title="Ver captura de pantalla real">🖼️ Captura</button>
+            </div>
+
+            <!-- Imagen real de captura -->
             <img src="images/kiosco.png" alt="Captura de KioscoApp" class="app-screenshot" onerror="this.style.display='none'">
-            <div class="visual-fallback">
+            
+            <!-- Vista interactiva en vivo -->
+            <div class="visual-fallback active-view">
               <div class="app-cover-window kiosk-window">
                 <div class="cover-topbar"><span></span><span></span><span></span><b>KioscoApp · Caja & Stock</b></div>
                 <div class="cover-content">
                   <div class="kiosk-stat-card">
-                    <small>VENTAS DEL DÍA</small>
-                    <b>$ 145,200</b>
+                    <small>VENTAS DEL DÍA (EN VIVO)</small>
+                    <b id="kioskSalesTotal">$ 145,200</b>
+                  </div>
+                  <div class="kiosk-quick-action">
+                    <button type="button" class="kiosk-sale-btn" id="kioskSaleBtn" title="Hacé clic para simular una venta">+ Venta rápida ($2.500) 🛒</button>
                   </div>
                   <div class="kiosk-items-row">
-                    <span>📦 Stock OK</span>
-                    <span>🛒 24 Ventas</span>
+                    <span id="kioskStockPill">📦 Stock OK</span>
+                    <span id="kioskCountPill">🛒 <b id="kioskSalesCount">24</b> Ventas</span>
                   </div>
                 </div>
               </div>
@@ -162,28 +231,38 @@
               <button class="text-link details-btn" data-target="kiosco-details">Detalles <span>＋</span></button>
             </div>
             <div class="details" id="kiosco-details">
-              <h4>Sobre KioscoApp</h4>
-              <p>Llevá el control diario de caja, inventario y ventas de forma ágil sin complicaciones técnicas.</p>
-              <ul>
-                <li>Control de inventario y stock en tiempo real.</li>
-                <li>Registro rápido de ventas y medios de pago.</li>
-                <li>Reportes claros para la toma de decisiones.</li>
-                <li>Soporte y distribución oficial por Microsoft Store.</li>
-              </ul>
-              <div class="detail-foot">
-                <a href="guia-kiosco.html" style="color:#ffad7b;font-weight:700;">Ver manual completo →</a>
-                <a href="politica-privacidad-kiosco.html" style="color:var(--muted);font-size:11px;">Privacidad</a>
+              <div class="details-inner">
+                <h4>Sobre KioscoApp</h4>
+                <p>Llevá el control diario de caja, inventario y ventas de forma ágil sin complicaciones técnicas.</p>
+                <ul>
+                  <li>Control de inventario y stock en tiempo real.</li>
+                  <li>Registro rápido de ventas y medios de pago.</li>
+                  <li>Reportes claros para la toma de decisiones.</li>
+                  <li>Soporte y distribución oficial por Microsoft Store.</li>
+                </ul>
+                <div class="detail-foot">
+                  <a href="guia-kiosco.html" style="color:#ffad7b;font-weight:700;">Ver manual completo →</a>
+                  <a href="politica-privacidad-kiosco.html" style="color:var(--muted);font-size:11px;">Privacidad</a>
+                </div>
               </div>
             </div>
           </div>
         </article>
 
         <!-- AlacartaApp -->
-        <article class="app-card app-card-soon">
-          <div class="app-visual visual-alacarta">
-            <div class="plate"><span>✦</span><i></i></div>
+        <article class="app-card app-card-soon" data-accent="blue">
+          <div class="card-glare"></div>
+          <div class="app-visual visual-alacarta" id="alacartaVisual">
+            <div class="plate interactive-plate" id="alacartaPlate" title="Movelo con el cursor">
+              <span>✦</span><i></i>
+              <div class="plate-steam"><span>~</span><span>~</span><span>~</span></div>
+            </div>
             <div class="spark spark-1">✧</div>
             <div class="spark spark-2">✦</div>
+            <div class="spark spark-3">✧</div>
+            <button type="button" class="btn-notify-alacarta" id="notifyAlacartaBtn" title="Hacé clic para suscribirte al estreno">
+              <span>✨</span> ¡Avisarme del estreno!
+            </button>
             <span class="visual-tag">NUEVO PROYECTO</span>
           </div>
           <div class="app-info">
@@ -191,7 +270,7 @@
               <h3>AlacartaApp</h3>
               <span class="status status-soon">En desarrollo</span>
             </div>
-            <p>Una nueva aplicación en camino de DAESystemsLabs. Próximamente más novedades y lanzamiento oficial.</p>
+            <p>Una nueva aplicación en camino de DAESystemsLabs para el sector gastronómico. Próximamente más novedades y lanzamiento oficial.</p>
             <div class="tag-row">
               <span>Próximamente</span>
               <span>Gastronomía</span>
@@ -202,9 +281,11 @@
               <button class="text-link details-btn" data-target="alacarta-details">Detalles <span>＋</span></button>
             </div>
             <div class="details" id="alacarta-details">
-              <h4>AlacartaApp</h4>
-              <p>Proyecto en fase de desarrollo activo. Pronto publicaremos sus características principales y su fecha estimada de llegada a Microsoft Store.</p>
-              <div class="detail-foot">Estado <span>En desarrollo</span></div>
+              <div class="details-inner">
+                <h4>AlacartaApp</h4>
+                <p>Proyecto en fase de desarrollo activo. Pronto publicaremos sus características principales y su fecha estimada de llegada a Microsoft Store.</p>
+                <div class="detail-foot">Estado <span>En desarrollo</span></div>
+              </div>
             </div>
           </div>
         </article>
@@ -215,16 +296,26 @@
 
     <section class="about-section" id="nosotros">
       <div class="about-inner">
-        <div class="about-symbol">DAE<span>/</span></div>
+        <div class="about-symbol" id="aboutSymbol">DAE<span>/</span></div>
         <div>
           <span class="eyebrow">SOBRE DAESYSTEMSLABS</span>
           <h2>Software útil.<br><span>Experiencias simples.</span></h2>
           <p>Desarrollamos aplicaciones de escritorio para Windows orientadas a resolver necesidades reales con alto estándar de calidad, rendimiento y simplicidad. Reunimos aquí nuestro ecosistema de productos.</p>
           <a class="text-link light-link" href="#aplicaciones">Conocé nuestras aplicaciones <span>→</span></a>
         </div>
-        <div class="about-stat">
-          <b>03</b>
-          <span>Aplicaciones<br>y proyectos</span>
+        <div class="about-stats-grid">
+          <div class="about-stat">
+            <b class="stat-counter" data-target="3" data-prefix="0">03</b>
+            <span>Aplicaciones<br>en catálogo</span>
+          </div>
+          <div class="about-stat">
+            <b class="stat-counter" data-target="100" data-suffix="%">100%</b>
+            <span>Nativo Windows<br>10 y 11</span>
+          </div>
+          <div class="about-stat">
+            <b class="stat-counter" data-target="0" data-prefix="0" data-suffix=" Bloat">0</b>
+            <span>Sin publicidad<br>ni extras</span>
+          </div>
         </div>
       </div>
     </section>
@@ -245,7 +336,7 @@
       <span class="brand-name">DAE<span>SystemsLabs</span></span>
     </a>
     <span>© <span id="year"></span> DAESystemsLabs. Todos los derechos reservados.</span>
-    <a href="#inicio">Volver arriba ↑</a>
+    <a href="#inicio" class="back-to-top">Volver arriba ↑</a>
   </footer>
 
   <!-- Lightbox Modal para portadas y capturas -->
