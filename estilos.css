@@ -19,11 +19,12 @@ button{font:inherit;cursor:pointer}
 .nav a:hover,.footer a:hover{color:#fff}
 .menu-toggle{display:none;background:none;border:1px solid var(--line);color:white;border-radius:8px;padding:7px 10px}
 
-.hero{max-width:var(--max);margin:auto;min-height:610px;padding:95px 24px 80px;display:grid;grid-template-columns:1.03fr .97fr;align-items:center;gap:45px}
+.hero{max-width:var(--max);margin:auto;min-height:610px;padding:95px 24px 80px;display:grid;grid-template-columns:1.03fr .97fr;align-items:start;gap:45px}
 .hero-content{max-width:570px}
 .eyebrow{font-size:10px;letter-spacing:2px;color:#b8b3c1;font-weight:700;display:inline-flex;align-items:center;gap:9px}
 .dot{width:6px;height:6px;border-radius:50%;background:#00e638;box-shadow:0 0 14px #00e638aa}
 .hero h1{font:600 clamp(42px,5.4vw,68px)/1.08 'Space Grotesk',sans-serif;letter-spacing:-3px;margin:22px 0}
+.hero-title-box{min-height:210px;display:flex;flex-direction:column;justify-content:center}
 .hero h1 span{background:linear-gradient(90deg,#00e638,#6ee7a0);-webkit-background-clip:text;background-clip:text;color:transparent}
 .hero p{font-size:16px;color:#b8b4be;max-width:500px;line-height:1.8}
 .hero-actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:30px}
@@ -248,6 +249,32 @@ button{font:inherit;cursor:pointer}
   .guide-content{padding:24px}
 }
 
+/* Scroll Reveal & Dynamic Animations */
+.reveal-item{opacity:0;transform:translateY(28px);transition:opacity 0.65s cubic-bezier(0.16,1,0.3,1),transform 0.65s cubic-bezier(0.16,1,0.3,1)}
+.reveal-item.revealed{opacity:1;transform:translateY(0)}
+
+@keyframes floatAnim{
+  0%,100%{transform:translateY(0)}
+  50%{transform:translateY(-8px)}
+}
+.float-chip{animation:floatAnim 5s ease-in-out infinite}
+.float-chip.chip-bottom{animation-delay:2.5s}
+
+@keyframes pulseDot{
+  0%,100%{box-shadow:0 0 0 0 rgba(0,230,56,0.6)}
+  70%{box-shadow:0 0 0 10px rgba(0,230,56,0)}
+}
+.dot{animation:pulseDot 2.5s infinite}
+
+/* Typewriter Effect */
+.typewriter{display:inline-block;font-size:0.7em;background:linear-gradient(90deg,#00e638,#6ee7a0);-webkit-background-clip:text;background-clip:text;color:transparent;border-right:3px solid var(--mint);padding-right:4px;animation:blinkCursor .75s infinite}
+@keyframes blinkCursor{
+  0%,100%{border-color:transparent}
+  50%{border-color:var(--mint)}
+}
+
+.app-card{transition:transform 0.3s cubic-bezier(0.16,1,0.3,1),border-color 0.3s,box-shadow 0.3s}
+
 /* Guide Images & Screenshots */
 .guide-image-container{margin:22px 0;border:1px solid var(--line);border-radius:12px;overflow:hidden;background:#17171a;text-align:center;box-shadow:0 12px 35px #0005;transition:border-color .25s}
 .guide-image-container:hover{border-color:#5a5365}
@@ -262,6 +289,7 @@ button{font:inherit;cursor:pointer}
   .nav.open{display:flex}
   .hero{padding:65px 22px 45px;min-height:0}
   .hero h1{font-size:45px;letter-spacing:-2px}
+  .hero-title-box{min-height:150px}
   .hero p{font-size:14px}
   .hero-art{height:300px}
   .orbit-one{width:300px;height:220px}
@@ -281,4 +309,35 @@ button{font:inherit;cursor:pointer}
   .contact-section{padding:55px 20px;align-items:flex-start;flex-direction:column}
   .footer{flex-wrap:wrap;padding:22px 20px}
   .footer>span{order:3;width:100%}
+}
+
+/* Hero Art & Interactive 3D Animations */
+.hero-art{perspective:1000px}
+.app-window{animation:floatWindow 6s ease-in-out infinite;transition:transform 0.15s ease-out}
+@keyframes floatWindow{
+  0%,100%{transform:translateY(0) rotate(-3deg)}
+  50%{transform:translateY(-10px) rotate(-1.5deg)}
+}
+
+.orbit{animation:rotateOrbit 30s linear infinite}
+.orbit-two{animation-duration:45s;animation-direction:reverse}
+@keyframes rotateOrbit{
+  from{transform:rotate(0deg)}
+  to{transform:rotate(360deg)}
+}
+
+.float-chip{animation:floatChip 5s ease-in-out infinite}
+.chip-top{animation-delay:0s}
+.chip-bottom{animation-delay:2.5s}
+@keyframes floatChip{
+  0%,100%{transform:translateY(0)}
+  50%{transform:translateY(-8px)}
+}
+
+.dash-bars i{animation:shimmerBar 2s ease-in-out infinite}
+.dash-bars i:nth-child(2){animation-delay:0.3s}
+.dash-bars i:nth-child(3){animation-delay:0.6s}
+@keyframes shimmerBar{
+  0%,100%{opacity:.6}
+  50%{opacity:1;filter:brightness(1.2)}
 }

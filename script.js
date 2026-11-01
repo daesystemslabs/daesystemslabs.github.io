@@ -78,8 +78,8 @@ document.querySelectorAll('.app-visual').forEach(visual => {
   }
 });
 
-modalClose.addEventListener('click', closeModal);
-modalBackdrop.addEventListener('click', closeModal);
+if (modalClose) modalClose.addEventListener('click', closeModal);
+if (modalBackdrop) modalBackdrop.addEventListener('click', closeModal);
 document.addEventListener('keydown', (e) => {
   if (e.key === 'Escape') closeModal();
 });
@@ -88,19 +88,86 @@ document.addEventListener('keydown', (e) => {
 const menuToggle = document.getElementById('menuToggle');
 const nav = document.getElementById('nav');
 
-menuToggle.addEventListener('click', () => {
-  const open = nav.classList.toggle('open');
-  menuToggle.setAttribute('aria-expanded', String(open));
-  menuToggle.textContent = open ? '×' : '☰';
+if (menuToggle && nav) {
+  menuToggle.addEventListener('click', () => {
+    const open = nav.classList.toggle('open');
+    menuToggle.setAttribute('aria-expanded', String(open));
+    menuToggle.textContent = open ? '×' : '☰';
+  });
+
+  nav.querySelectorAll('a').forEach(link => link.addEventListener('click', () => {
+    nav.classList.remove('open');
+    menuToggle.setAttribute('aria-expanded', 'false');
+    menuToggle.textContent = '☰';
+  }));
+}
+
+// Scroll Reveal Animation with IntersectionObserver
+const observerOptions = { threshold: 0.1, rootMargin: '0px 0px -40px 0px' };
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('revealed');
+      observer.unobserve(entry.target);
+    }
+  });
+}, observerOptions);
+
+document.querySelectorAll('.app-card, .section-heading, .about-inner, .contact-section').forEach(el => {
+  el.classList.add('reveal-item');
+  observer.observe(el);
 });
 
-nav.querySelectorAll('a').forEach(link => link.addEventListener('click', () => {
-  nav.classList.remove('open');
-  menuToggle.setAttribute('aria-expanded', 'false');
-  menuToggle.textContent = '☰';
-}));
+// Typewriter / Word rotation effect
+const words = ["hechas para vos.", "automatizá tus tareas.", "potenciá tu negocio."];
+let wordIndex = 0;
+let charIndex = 0;
+let isDeleting = false;
+const typewriterEl = document.getElementById('typewriter');
 
-// Contact email handler
-document.querySelector('a[href^="mailto:"]').addEventListener('click', event => {
-  // Correo oficial configurado: daesystemslabs@gmail.com
-});
+function typeEffect() {
+  if (!typewriterEl) return;
+  const currentWord = words[wordIndex];
+
+  if (isDeleting) {
+    typewriterEl.textContent = currentWord.substring(0, charIndex - 1);
+    charIndex--;
+  } else {
+    typewriterEl.textContent = currentWord.substring(0, charIndex + 1);
+    charIndex++;
+  }
+
+  let typeSpeed = isDeleting ? 45 : 90;
+
+  if (!isDeleting && charIndex === currentWord.length) {
+    typeSpeed = 2200; // Pause at end of word
+    isDeleting = true;
+  } else if (isDeleting && charIndex === 0) {
+    isDeleting = false;
+    wordIndex = (wordIndex + 1) % words.length;
+    typeSpeed = 400; // Pause before next word
+  }
+
+  setTimeout(typeEffect, typeSpeed);
+}
+
+setTimeout(typeEffect, 1200);
+
+// Hero Art Parallax / Tilt Effect on Mouse Move
+const heroArt = document.querySelector('.hero-art');
+const appWindow = document.querySelector('.app-window');
+
+if (heroArt && appWindow) {
+  heroArt.addEventListener('mousemove', (e) => {
+    const rect = heroArt.getBoundingClientRect();
+    const x = e.clientX - rect.left - rect.width / 2;
+    const y = e.clientY - rect.top - rect.height / 2;
+    const rotateX = (-y / 15).toFixed(2);
+    const rotateY = (x / 15).toFixed(2);
+    appWindow.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-5px) rotate(-2deg)`;
+  });
+
+  heroArt.addEventListener('mouseleave', () => {
+    appWindow.style.transform = '';
+  });
+}
