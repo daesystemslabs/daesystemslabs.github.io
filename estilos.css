@@ -128,7 +128,7 @@ body:hover .cursor-glow {
 }
 
 /* ========================================================
-   HEADER & NAVEGACIÓN
+   HEADER & NAVEGACIÓN CON LOGO PERSONALIZADO
    ======================================================== */
 .header {
   height: 78px;
@@ -154,16 +154,45 @@ body:hover .cursor-glow {
 
 .brand {
   display: flex;
-  align-items: center;
-  gap: 10px;
-  font-family: 'Space Grotesk', sans-serif;
-  font-weight: 700;
-  transition: transform 0.2s ease;
+  flex-direction: column;
+  align-items: flex-start;
+  text-decoration: none;
+  gap: 2px;
+  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), filter 0.25s ease;
 }
 .brand:hover {
-  transform: scale(1.02);
+  transform: translateY(-1px);
+  filter: brightness(1.1);
 }
 
+.brand-logo-img {
+  height: 48px;
+  width: auto;
+  object-fit: contain;
+  display: block;
+  filter: drop-shadow(0 0 10px rgba(0, 230, 56, 0.3));
+  transition: filter 0.3s ease, transform 0.3s ease;
+}
+.brand:hover .brand-logo-img {
+  filter: drop-shadow(0 0 18px rgba(0, 230, 56, 0.65));
+  transform: scale(1.03);
+}
+
+.brand-author {
+  font-size: 9.5px;
+  letter-spacing: 0.8px;
+  color: #9ea0aa;
+  font-family: 'Space Grotesk', sans-serif;
+  font-weight: 500;
+  display: block;
+  line-height: 1.2;
+  transition: color 0.2s ease;
+}
+.brand:hover .brand-author {
+  color: #d1d5db;
+}
+
+/* Fallback clásico */
 .brand-mark {
   width: 34px;
   height: 34px;
@@ -174,25 +203,10 @@ body:hover .cursor-glow {
   font-size: 19px;
   color: #071008;
   box-shadow: 0 0 22px rgba(0, 230, 56, 0.45);
-  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s;
 }
-.brand:hover .brand-mark {
-  transform: rotate(6deg) scale(1.08);
-  box-shadow: 0 0 28px rgba(0, 230, 56, 0.7);
-}
-
-.brand-mark span {
-  color: #fff;
-}
-
-.brand-name {
-  font-size: 15px;
-  letter-spacing: -0.5px;
-}
-.brand-name span {
-  color: #b8b4c0;
-  font-weight: 500;
-}
+.brand-mark span { color: #fff; }
+.brand-name { font-size: 15px; letter-spacing: -0.5px; }
+.brand-name span { color: #b8b4c0; font-weight: 500; }
 
 .nav {
   display: flex;
@@ -254,8 +268,8 @@ body:hover .cursor-glow {
 .hero {
   max-width: var(--max);
   margin: auto;
-  min-height: 610px;
-  padding: 95px 24px 80px;
+  min-height: 590px;
+  padding: 90px 24px 80px;
   display: grid;
   grid-template-columns: 1.03fr 0.97fr;
   align-items: center;
@@ -313,21 +327,25 @@ body:hover .cursor-glow {
 }
 
 .hero-title-box {
-  min-height: 190px;
+  min-height: 140px;
   display: flex;
   flex-direction: column;
   justify-content: center;
 }
 
+/* Efecto de máquina de escribir con reducción del -40% */
 .typewriter {
   display: inline-block;
+  font-size: 0.6em; /* Reducción de -40% respecto al título h1 */
+  letter-spacing: -1px;
   background: linear-gradient(90deg, #00e638 0%, #6ee7a0 50%, #38bdf8 100%);
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
   border-right: 3px solid var(--mint);
-  padding-right: 4px;
+  padding-right: 6px;
   animation: blinkCursor 0.75s infinite;
+  vertical-align: middle;
 }
 
 @keyframes blinkCursor {
@@ -1484,31 +1502,41 @@ body:hover .cursor-glow {
   margin: auto;
   padding: 85px 24px;
   display: grid;
-  grid-template-columns: 110px 1.4fr 1.1fr;
-  gap: 40px;
+  grid-template-columns: 180px 1.35fr 1.1fr;
+  gap: 36px;
   align-items: center;
 }
 
 .about-symbol {
-  width: 96px;
-  height: 96px;
+  width: 170px;
+  height: 88px;
   border: 1px solid #51495d;
-  border-radius: 26px;
-  display: grid;
-  place-items: center;
-  font: 700 34px 'Space Grotesk', sans-serif;
-  color: #00e638;
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 14px;
   background: linear-gradient(145deg, #28252e, #171619);
-  box-shadow: 0 14px 40px rgba(0, 0, 0, 0.6), 0 0 20px rgba(0, 230, 56, 0.2);
-  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s;
+  box-shadow: 0 14px 40px rgba(0, 0, 0, 0.6), 0 0 22px rgba(0, 230, 56, 0.2);
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s, border-color 0.3s;
   cursor: pointer;
 }
 .about-symbol:hover {
-  transform: rotate(-6deg) scale(1.08);
-  box-shadow: 0 18px 50px rgba(0, 0, 0, 0.8), 0 0 30px rgba(0, 230, 56, 0.4);
+  transform: translateY(-3px) scale(1.04);
+  border-color: #00e638;
+  box-shadow: 0 18px 50px rgba(0, 0, 0, 0.8), 0 0 32px rgba(0, 230, 56, 0.45);
 }
-.about-symbol span {
-  color: #a78bfa;
+.about-logo-img {
+  width: 100%;
+  height: auto;
+  max-height: 60px;
+  object-fit: contain;
+  display: block;
+  filter: drop-shadow(0 0 10px rgba(0, 230, 56, 0.35));
+  transition: filter 0.3s ease;
+}
+.about-symbol:hover .about-logo-img {
+  filter: drop-shadow(0 0 18px rgba(0, 230, 56, 0.7));
 }
 
 .about-section h2 {
@@ -1590,7 +1618,7 @@ body:hover .cursor-glow {
 
 .footer {
   border-top: 1px solid #34313a;
-  padding: 26px max(5vw, 24px);
+  padding: 24px max(5vw, 24px);
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -1601,6 +1629,17 @@ body:hover .cursor-glow {
   z-index: 2;
   background: #0e0f11;
 }
+
+.footer .brand {
+  align-items: flex-start;
+}
+.footer .brand-logo-img {
+  height: 36px;
+}
+.footer .brand-author {
+  font-size: 9px;
+}
+
 .footer .brand-name {
   color: #dfe7f5;
   font-size: 12px;
@@ -2005,7 +2044,14 @@ body:hover .cursor-glow {
 
 @media (max-width: 600px) {
   .header {
-    height: 68px;
+    height: 72px;
+  }
+  .brand-logo-img {
+    height: 38px;
+  }
+  .brand-author {
+    font-size: 8.5px;
+    letter-spacing: 0.5px;
   }
   .menu-toggle {
     display: block;
@@ -2013,7 +2059,7 @@ body:hover .cursor-glow {
   .nav {
     display: none;
     position: absolute;
-    top: 67px;
+    top: 71px;
     left: 0;
     right: 0;
     padding: 20px 24px;
@@ -2035,7 +2081,10 @@ body:hover .cursor-glow {
     letter-spacing: -2px;
   }
   .hero-title-box {
-    min-height: 140px;
+    min-height: 110px;
+  }
+  .typewriter {
+    font-size: 0.62em;
   }
   .hero p {
     font-size: 14px;
@@ -2080,6 +2129,10 @@ body:hover .cursor-glow {
   .about-stats-grid {
     grid-template-columns: 1fr;
     gap: 16px;
+  }
+  .about-symbol {
+    width: 140px;
+    height: 82px;
   }
   .contact-section {
     padding: 55px 20px;
