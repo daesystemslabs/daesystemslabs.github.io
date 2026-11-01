@@ -1522,8 +1522,8 @@ body:hover .cursor-glow {
   margin: auto;
   padding: 85px 24px;
   display: grid;
-  grid-template-columns: 180px 1.35fr 1.1fr;
-  gap: 36px;
+  grid-template-columns: 1.35fr 1.1fr;
+  gap: 45px;
   align-items: center;
 }
 
