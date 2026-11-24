@@ -3,7 +3,8 @@
 
 const storeLinks = {
   xtecla: "https://apps.microsoft.com/detail/9pgvhcfj07bx?hl=es-ES&gl=PY",
-  kiosco: "https://apps.microsoft.com/detail/9pfjp5vvs9h1?hl=es-ES&gl=AR"
+  kiosco: "https://apps.microsoft.com/detail/9pfjp5vvs9h1?hl=es-ES&gl=AR",
+  gameboost: "https://apps.microsoft.com/detail/9NRQ3RM80FLT?hl=es-AR&gl=AR"
 };
 
 // 1. Toast Notification System

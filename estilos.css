@@ -1506,6 +1506,24 @@ body:hover .cursor-glow {
   color: #93c5fd;
 }
 
+
+/* ========================================================
+   DAE GAMEBOOST - VISUAL DE TARJETA
+   ======================================================== */
+.visual-gameboost {
+  background: radial-gradient(ellipse at 50% 45%, #16331e 0, #111b15 48%, #121315 100%);
+}
+.gameboost-visual-panel { position:relative; width:86%; max-width:390px; padding:24px 18px 18px; text-align:center; border:1px solid rgba(105,245,132,.28); border-radius:14px; background:linear-gradient(145deg,rgba(21,36,25,.94),rgba(12,15,14,.96)); box-shadow:0 12px 35px rgba(0,0,0,.38),0 0 30px rgba(63,220,96,.08); overflow:hidden; }
+.gameboost-orbit { position:absolute; width:160px; height:160px; border:1px solid rgba(88,235,119,.16); border-radius:50%; left:50%; top:50%; transform:translate(-50%,-50%); box-shadow:0 0 0 18px rgba(88,235,119,.025),0 0 0 36px rgba(88,235,119,.025); }
+.gameboost-mark { position:relative; font-size:35px; line-height:1; color:#83f59b; text-shadow:0 0 20px rgba(77,255,123,.45); }
+.gameboost-panel-title { position:relative; font-size:15px; font-weight:900; letter-spacing:2px; color:#e9f8ec; margin-top:8px; }
+.gameboost-panel-sub { position:relative; font-size:8px; letter-spacing:2px; color:#8cdaa0; margin-top:4px; }
+.gameboost-metrics { position:relative; display:flex; justify-content:center; gap:8px; margin-top:16px; }
+.gameboost-metrics span { border:1px solid rgba(100,230,130,.22); background:rgba(76,185,100,.08); color:#b8eac4; padding:5px 8px; border-radius:5px; font-size:8px; letter-spacing:1px; }
+.app-card[data-accent="gameboost"] .visual-tag { color:#9bf5a5; }
+.app-card[data-accent="gameboost"] .status-soon { color:#b9f7c2; background:#17291b; border:1px solid #326b3d; }
+.app-card[data-accent="gameboost"] .btn-primary { background:linear-gradient(135deg,#4ade80,#22c55e); color:#08200e; }
+
 /* ========================================================
    SECCIÓN SOBRE NOSOTROS & CONTADOR DE ESTADÍSTICAS
    ======================================================== */
@@ -2235,3 +2253,12 @@ body:hover .cursor-glow {
     margin-top: 10px;
   }
 }
+/* Identidad oficial de DAE GameBoost en Microsoft Store */
+.gameboost-store-identity { margin-top:22px; padding:16px; border:1px solid rgba(105,245,132,.25); border-radius:12px; background:rgba(14,20,16,.52); }
+.gameboost-store-identity h4 { margin:0 0 12px; color:#a5f3b5; }
+.gameboost-store-identity dl { margin:0; display:grid; gap:10px; }
+.gameboost-store-identity dl div { display:grid; gap:4px; }
+.gameboost-store-identity dt { color:var(--muted); font-size:11px; }
+.gameboost-store-identity dd { margin:0; overflow-wrap:anywhere; font-size:12px; }
+.gameboost-store-link { display:inline-block; margin-top:14px; padding:9px 12px; border:1px solid rgba(105,245,132,.35); border-radius:8px; color:#9bf5a5; text-decoration:none; font-weight:700; font-size:12px; }
+.gameboost-store-link:hover { background:rgba(74,222,128,.1); }
